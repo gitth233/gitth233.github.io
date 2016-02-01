@@ -2,8 +2,8 @@
     border-bottom:0.23em outset #848484;
 
 }
-.navbar-inverse .navbar-brand,
-.navbar-inverse .navbar-brand:hover{
+
+#Icon{
 	font-size: 1.5em;
 	font-weight: bold;
 	color: #F2F2F2;
@@ -30,13 +30,20 @@
     color: #f2f1ef;
     background-color: #848484;
 }
-
+.navbar-right{
+	margin-right: 0px;
+}
 .jumbotron{
 	background-color: #6E6E6E;
 	border-bottom: 0.25em solid #D8D8D8;
 	padding-top: 2%;
   margin-bottom: 30px;
   padding-bottom: 0.5%;
+}
+
+#intro-name{
+	margin-left: 15%;
+	padding-left: 0px;
 }
 .jumbotron h1{
 	color:#F2F2F2;
