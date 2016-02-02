@@ -1,6 +1,5 @@
 .navbar-inverse {
     border-bottom:0.23em outset #848484;
-
 }
 
 #Icon{
@@ -13,9 +12,9 @@
 	border-right: 0.1em outset #f2f1ef;
 }
 .navbar-inverse .navbar-nav > li > a{
-		font-size: 1em;
+    font-size: 1em;
     color: #F2F2F2;
-		font-weight: bold;
+    font-weight: bold;
 }
 .navbar-inverse .navbar-nav > li > a:hover {
     color: #f2f1ef;
@@ -24,9 +23,9 @@
 .navbar-inverse .navbar-nav > .active > a, 
 .navbar-inverse .navbar-nav > .active > a:hover, 
 .navbar-inverse .navbar-nav > .active > a:focus {
-		border-left:0.2em inset #f2f1ef;
-		border-bottom: 0.2em outset #f2f1ef;
-		border-right: 0.2em outset #f2f1ef;
+	border-left:0.2em inset #f2f1ef;
+    border-bottom: 0.2em outset #f2f1ef;
+    border-right: 0.2em outset #f2f1ef;
     color: #f2f1ef;
     background-color: #848484;
 }
@@ -37,8 +36,8 @@
 	background-color: #6E6E6E;
 	border-bottom: 0.25em solid #D8D8D8;
 	padding-top: 2%;
-  margin-bottom: 30px;
-  padding-bottom: 0.5%;
+    margin-bottom: 30px;
+    padding-bottom: 0.5%;
 }
 
 #intro-name{
@@ -56,41 +55,17 @@
 	margin-left:15%;
 	
 }
-.page-header{
-	margin-bottom: 2%;
-	margin-top: 4%;
-}
 
-.lead{
-	margin-bottom: 2%;
-	margin-top: 2%;
-}
-
-#resume{
-	padding-left:100px;
-	padding-right:100px;
-	padding-top:50px;
-	padding-bottom:200px;
-	background-color:#FFFFFF;
-	margin-bottom:200px;
-}
-
-.date {
-	float: right;
-}
-
-ul{
-	padding-left: 1%;
-	margin-bottom: 1%;
-	margin-top: 1%;
-}
-
-#resume{
-	border: 0.1em solid #D8D8D8;
-}
 
 body {
 	background-color:#ecf0f1;
 	margin: 0px;
 	padding: 0px;
+}
+footer{
+	background-color: #6E6E6E;
+    border-top:0.23em outset #848484;
+}
+#footer-text{
+    color: #F2F2F2;
 }

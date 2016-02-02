@@ -1,4 +1,4 @@
-var main=function(){
+var main = function(){
 	$('.nav a').click(function(){
 		$('.nav').find('.active').removeClass('active');
 		$(this).parent().addClass('active');
