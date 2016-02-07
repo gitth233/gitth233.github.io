@@ -59,11 +59,11 @@
     font-size: 8em;
 }
 
-.dropdown-button, .dropdown-button.active:hover{
+.dropdown-button, .dropdown-button.active:hover, .dropdown-button.active:focus{
     background-color: transparent;
     border: 2px solid rgb(34, 34, 34);
 }
-.dropdown-button:hover, .dropdown-button.active{
+.dropdown-button:hover, .dropdown-button:focus, .dropdown-button.active{
     background-color: #101010;
     color: white;
 }

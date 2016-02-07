@@ -1,13 +1,10 @@
-var main = function(){
+var main = function ( ) {
 	$('.nav a').click(function(){
 		$('.nav').find('.active').removeClass('active');
 		$(this).parent().addClass('active');
 	});
     $('.dropdown-button').click(function(){
-        if($('.dropdown-button').hasClass('active'))
-            $('.dropdown-button').removeClass('active');
-        else
-            $('.dropdown-button').addClass('active');
+        $('.dropdown-button').toggleClass('active');
         $('#about').slideToggle('700');
     });
 };
@@ -17,10 +14,10 @@ $(document).ready(function(){
 	    e.preventDefault();
 
 	    var target = this.hash;
-	    var $target = $(target);
+	    var offset = $(target).offset().top;
 
 	    $('html, body').stop().animate({
-	        'scrollTop': $target.offset().top
+	        'scrollTop': offset
 	    }, 900, 'swing', function () {
 	        window.location.hash = target;
 	    });
