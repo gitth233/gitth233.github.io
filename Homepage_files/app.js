@@ -19,6 +19,8 @@ $(document).ready(function(){
 	    var target = this.hash;
 	    var $target = $(target);
 
+        if(target=="#about"&& ! $(".dropdown-button").hasClass('active'))
+            $('.dropdown-button').click();
 	    $('html, body').stop().animate({
 	        'scrollTop': $target.offset().top
 	    }, 900, 'swing', function () {
