@@ -2,6 +2,17 @@
     border-bottom:0.14em outset #848484;
 }
 
+.navbar > .container-fluid .navbar-brand.nav-icon{
+    text-align: center; 
+    font-size: 25px; 
+    margin-left: 0px; 
+    padding-left: 0px; 
+    padding-right: 0px; 
+    color: white;
+}
+.navbar a.navbar-brand.nav-link{
+    padding: 0px; margin-left: 0px;
+}
 .navbar-inverse .navbar-nav > li > a{
     font-size: 1.24em;
     color: #F2F2F2;
@@ -26,6 +37,18 @@
     width: 100%;
     height: 100%;
     background-size: cover;
+    border-bottom: 20px solid rgb(16, 16, 16); margin-bottom: 0px;
+}
+#awesome-page-header >.container{
+    margin-bottom: 0px;
+}
+
+#awesome-page-header > .container h1{
+    margin-top:100px;
+}
+
+#awesome-page-header > .container h3{
+    margin-bottom: 120px;
 }
 
 .jumbotron{
@@ -36,8 +59,9 @@
     font-size: 8em;
 }
 
-.dropdown-button{
+.dropdown-button, .dropdown-button.active:hover{
     background-color: transparent;
+    border: 2px solid rgb(34, 34, 34);
 }
 .dropdown-button:hover, .dropdown-button.active{
     background-color: #101010;
@@ -50,6 +74,7 @@ body {
 
 .container{
 	text-align: center;
+    margin-bottom: 60px;
 }
 
 .container .left{
