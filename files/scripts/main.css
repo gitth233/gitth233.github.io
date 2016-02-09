@@ -33,7 +33,7 @@
 }
 #awesome-page-header { 
     position: relative;
-    background: url("cover.jpg") no-repeat center center;
+    background: url("../img/cover.jpg") no-repeat center center;
     width: 100%;
     height: 100%;
     background-size: cover;
