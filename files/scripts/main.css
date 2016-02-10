@@ -56,7 +56,7 @@
     position:relative;
 }
 .jumbotron h1{
-    font-size: 8em;
+    font-size: 6em;
 }
 
 .btn.btn-default,.btn.btn-default.active:hover, .btn.btn-default:focus{
