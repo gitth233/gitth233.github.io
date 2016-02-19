@@ -1,5 +1,6 @@
 .navbar-inverse {
     border-bottom:0.14em outset #848484;
+    background-color: #29292D;
 }
 
 .navbar > .container-fluid .navbar-brand.nav-icon{
@@ -8,24 +9,24 @@
     margin-left: 0px; 
     padding-left: 0px; 
     padding-right: 0px; 
-    color: white;
+    color: #D1D2D2;
 }
 .navbar a.navbar-brand.nav-link{
     padding: 0px; margin-left: 0px;
 }
 .navbar-inverse .navbar-nav > li > a{
     font-size: 1.15em;
-    color: #F2F2F2;
+    color: #D1D2D2;
     font-weight: bold;
 }
 .navbar-inverse .navbar-nav > li > a:hover {
-    color: #151515;
+    color: #29292D;
     background-color:#BFBFBF;
 }
 .navbar-inverse .navbar-nav > .active > a, 
 .navbar-inverse .navbar-nav > .active > a:hover, 
 .navbar-inverse .navbar-nav > .active > a:focus {
-    color: #151515;
+    color: #29292D;
     background-color: #BFBFBF;
 }
 .navbar-right{
@@ -37,7 +38,7 @@
     width: 100%;
     height: 100%;
     background-size: cover;
-    border-bottom: 20px solid rgb(16, 16, 16); margin-bottom: 0px;
+    border-bottom: 20px solid #29292D; margin-bottom: 0px;
 }
 #awesome-page-header >.container{
     margin-bottom: 0px;
@@ -74,11 +75,11 @@
 
 .btn.btn-default,.btn.btn-default.active:hover, .btn.btn-default:focus{
     background-color: transparent;
-    border: 2px solid rgb(34, 34, 34);
+    border: 2px solid #29292D;
     color: black;
 }
 .btn.btn-default:hover, .btn.btn-default.active, .btn.btn-default.active:focus{
-    background-color: #101010;
+    background-color: #29292D ;
     color: white;
 }
 
@@ -96,9 +97,9 @@ body {
 }
 
 footer{
-	background-color: #101010;
+	background-color: #29292D ;
     border-top:0.14em outset #080808;
 }
 #footer-text{
-    color: #F2F2F2;
+    color: #D1D2D2;
 }
