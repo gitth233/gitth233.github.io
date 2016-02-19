@@ -4,7 +4,7 @@
 
 .navbar > .container-fluid .navbar-brand.nav-icon{
     text-align: center; 
-    font-size: 25px; 
+    font-size: 23px; 
     margin-left: 0px; 
     padding-left: 0px; 
     padding-right: 0px; 
@@ -14,7 +14,7 @@
     padding: 0px; margin-left: 0px;
 }
 .navbar-inverse .navbar-nav > li > a{
-    font-size: 1.2em;
+    font-size: 1.15em;
     color: #F2F2F2;
     font-weight: bold;
 }
@@ -51,10 +51,23 @@
     margin-bottom: 120px;
 }
 
-.jumbotron{
+.jumbotron.intro{
     background-color: #DCDCDC; 
     position:relative;
+    padding-bottom: 0;
 }
+
+.close-bar{
+    width:100%;
+}
+.close-bar span{
+    display:block;
+    text-align: center;
+    font-size: 18px;
+    height: 30px;
+    cursor: pointer;
+}
+
 .jumbotron h1{
     font-size: 6em;
 }
