@@ -26,6 +26,7 @@
 .navbar-inverse .navbar-nav > .active > a, 
 .navbar-inverse .navbar-nav > .active > a:hover, 
 .navbar-inverse .navbar-nav > .active > a:focus {
+    border-bottom:0.14em outset #222222;
     color: #29292D;
     background-color: #BFBFBF;
 }
@@ -45,6 +46,7 @@
 }
 
 #awesome-page-header > .container h1{
+    font-family: 'Ubuntu', sans-serif;
     margin-top:100px;
 }
 
@@ -85,6 +87,7 @@
 
 body {
 	background-color: #FFFFF0;
+    font-family: 'Alegreya Sans', sans-serif;
 }
 
 .container{
