@@ -55,9 +55,10 @@
 }
 
 .jumbotron.intro{
-    background-color: #DCDCDC; 
+    background-color: #29292D; 
     position:relative;
     padding-bottom: 0;
+    color: #FEFEFE;
 }
 
 .close-bar{
@@ -86,7 +87,7 @@
 }
 
 body {
-	background-color: #FFFFF0;
+	background-color: #FEFEFE;
     font-family: 'Alegreya Sans', sans-serif;
 }
 
@@ -98,6 +99,7 @@ body {
 .container .left{
 	text-align:justify;
 }
+
 
 footer{
 	background-color: #29292D ;
