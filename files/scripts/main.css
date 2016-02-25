@@ -10,6 +10,8 @@
     padding-left: 0px; 
     padding-right: 0px; 
     color: #D1D2D2;
+    cursor: pointer;
+    
 }
 .navbar a.navbar-brand.nav-link{
     padding: 0px; margin-left: 0px;
