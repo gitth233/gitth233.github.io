@@ -30,6 +30,16 @@ $(document).ready(function(){
 	        window.location.hash = target;
 	    });
 	});
+    
+    $(window).scroll(function(){
+        console.log($(window).scrollTop());
+        if($(window).scrollTop() > 452){
+            $('.navbar-inverse').addClass('solid');
+        }
+        else if($(window).scrollTop() <= 452){
+            $('.navbar-inverse.solid').removeClass('solid');
+        }
+    });
 });
 
 $(document).ready(main);

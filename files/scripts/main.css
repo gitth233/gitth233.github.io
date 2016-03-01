@@ -1,31 +1,61 @@
 .navbar-inverse {
+    border:transparent;
+    background-color: transparent;
+    transition: all 0.6s;
+}
+
+.navbar-inverse .navbar-brand{
+    color: #29292D;
+}
+
+.navbar-inverse .navbar-right{
+    font-size: 1.15em;
+    font-weight: bold;
+}
+
+.navbar-inverse.solid .navbar-brand{
+    color: #D1D2D2;
+}
+
+.navbar-inverse.solid {
     border-bottom:0.14em outset #848484;
     background-color: #29292D;
+    color: #D1D2D2;
 }
 
 .navbar > .container-fluid .navbar-brand.nav-icon{
     text-align: center; 
     font-size: 23px; 
-    margin-left: 0px; 
-    padding-left: 0px; 
-    padding-right: 0px; 
-    color: #D1D2D2;
+    padding-left: 15px; 
+    padding-right: 15px; 
     cursor: pointer;
     
 }
-.navbar a.navbar-brand.nav-link{
-    padding: 0px; margin-left: 0px;
+
+.navbar-brand.nav-link{
+    padding-top:7.5px;
+    padding-bottom: 7.5px;
 }
+
 .navbar-inverse .navbar-nav > li > a{
-    font-size: 1.15em;
-    color: #D1D2D2;
-    font-weight: bold;
+    color: #29292D;
 }
+
+.navbar-inverse.solid .navbar-nav > li > a{
+    color: #BFBFBF;
+}
+
 .navbar-inverse .navbar-nav > li > a:hover {
+    border-bottom: 2px solid #29292D;
+}
+
+.navbar-inverse.solid .navbar-nav > li > a:hover {
     color: #29292D;
     background-color:#BFBFBF;
 }
-.navbar-inverse .navbar-nav > .active > a, 
+
+
+.navbar-inverse.solid .navbar-nav > .active > a, 
 .navbar-inverse .navbar-nav > .active > a:hover, 
 .navbar-inverse .navbar-nav > .active > a:focus {
     border-bottom:0.14em outset #222222;
@@ -69,13 +99,16 @@
 .close-bar span{
     display:block;
     text-align: center;
-    font-size: 18px;
     height: 30px;
     cursor: pointer;
 }
 
 .jumbotron h1{
     font-size: 6em;
+}
+
+.btn{
+    transition: all 0.4s;
 }
 
 .btn.btn-default,.btn.btn-default.active:hover, .btn.btn-default:focus{
