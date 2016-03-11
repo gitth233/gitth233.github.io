@@ -136,12 +136,23 @@ body {
     padding: 10px 20px 30px 20px;
 }
 .container .left {
-    text-align: justify;
+    text-align: left;
 }
 footer {
     background-color: #29292D;
     border-top: 2px outset #080808;
-}
-#footer-text {
+    text-align: center;
     color: #D1D2D2;
+    padding-bottom: 20px;
+}
+footer h1 {
+    font-size: 3em;
+}
+footer a {
+    color: #D1D2D2;
+}
+footer a:hover {
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
 }
