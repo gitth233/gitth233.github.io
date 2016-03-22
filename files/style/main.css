@@ -124,16 +124,45 @@ body {
     background-color: #FEFEFE;
     font-family: 'Alegreya Sans', sans-serif;
 }
-.container {
+.container{
     text-align: center;
     margin-bottom: 20px;
     margin-top: 20px;
-    padding-top: 15px;
     padding-bottom: 15px;
 }
-.project-details {
-    border-radius: 20px;
-    padding: 10px 20px 30px 20px;
+#projects{
+    background-color: #f1f1f1;
+}
+#projects .container{
+    margin-top:0px;
+    padding-bottom: 80px;
+}
+.project-card {
+    border-radius: 15px;
+    min-height: 300px;
+    background-color:#FEFEFE;
+}
+.project-header{
+    border-radius: 15px 15px 0px 0px;
+    min-height:70px;
+    background-color: #29292D;
+}
+.project-card h3{
+    margin: 0px;
+    color: #D1D1D1;
+}
+.project-card small{
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.project-details{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.clear{
+    clear: both;
 }
 .container .left {
     text-align: left;
