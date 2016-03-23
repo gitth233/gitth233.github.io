@@ -157,10 +157,10 @@ body {
     margin: 10px 10px 0px 10px;
 }
 .project-details{
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 10px 15px 0px 15px;
 }
+.project-details p{
+    text-align: justify;
 }
 .clear{
     clear: both;
