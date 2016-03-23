@@ -72,6 +72,7 @@
     background-color: #29292D;
     color: #FEFEFE;
     padding-bottom: 0px;
+    margin-bottom: 0px;
 }
 #about h2 {
     text-align: left;
@@ -153,13 +154,13 @@ body {
 }
 .project-card small{
     float: left;
-    margin-top: 10px;
-    margin-left: 10px;
+    margin: 10px 10px 0px 10px;
 }
 .project-details{
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
+}
 }
 .clear{
     clear: both;
