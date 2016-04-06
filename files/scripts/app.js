@@ -36,5 +36,12 @@ $(document).ready(function () {
 
     $('.dropdown-button').click(slide);
     $('.close-bar span').click(slide);
+    
+    CanvasDrawer.setObjNum(8);
+    CanvasDrawer.loadCanvas();
+});
 
+
+$(window).resize(function(){
+   CanvasDrawer.init();
 });
