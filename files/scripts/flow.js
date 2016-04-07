@@ -1,14 +1,14 @@
 var CanvasDrawer = (function () {
-    var canvas = document.getElementById('canvas'),
+    var canvas,
+        canvasID,
         WIDTH,
         HEIGHT,
-        ctx = canvas.getContext('2d'),
-        squareList = [],
-        circleList = [],
-        triangleList = [],
+        ctx,
+        objList = [],
         objNum = 8,
         strokeStyle = '#42A5F5',
-        lineWidth = 3;
+        lineWidth = 3,
+        toDegree = Math.PI / 180;
 
     function Circle(x, y, radius, moveY) {
         this.x = x;
@@ -35,7 +35,7 @@ var CanvasDrawer = (function () {
 
     Square.prototype.draw = function () {
         ctx.translate(this.x, this.y);
-        ctx.rotate(this.angle * Math.PI / 180);
+        ctx.rotate(this.angle * toDegree);
         ctx.strokeRect(-this.length / 2, -this.length / 2, this.length, this.length);
 
         ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -48,21 +48,41 @@ var CanvasDrawer = (function () {
         this.moveY = moveY;
         this.angle = angle;
         this.angularSpeed = angularSpeed;
+
+        this.xFromOrigin = this.length / 2;
+        this.yFromOrigin = Math.sqrt(3) / 4 * this.length;
     }
 
     Triangle.prototype.draw = function () {
         ctx.translate(this.x, this.y);
-        ctx.rotate(this.angle * Math.PI / 180);
+        ctx.rotate(this.angle * toDegree);
 
         ctx.beginPath();
-        ctx.moveTo(-this.length / 2, -Math.sqrt(3) / 4 * this.length);
-        ctx.lineTo(this.length / 2, -Math.sqrt(3) / 4 * this.length);
-        ctx.lineTo(0, Math.sqrt(3) / 4 * this.length);
+        ctx.moveTo(-this.xFromOrigin, -this.yFromOrigin);
+        ctx.lineTo(this.xFromOrigin, -this.yFromOrigin);
+        ctx.lineTo(0, this.yFromOrigin);
         ctx.closePath();
         ctx.stroke();
 
         ctx.setTransform(1, 0, 0, 1, 0, 0);
     };
+
+    function setCanvasID(id) {
+        canvasID = id;
+    }
+
+    function setCanvasSize(width, height) {
+        WIDTH = width;
+        HEIGHT = height;
+    }
+
+    function resize(width, height) {
+        setCanvasSize(width, height);
+        canvas.width = width;
+        canvas.height = height;
+        ctx.strokeStyle = strokeStyle;
+        ctx.lineWidth = lineWidth;
+    }
 
     function getObjNum() {
         return objNum;
@@ -72,8 +92,16 @@ var CanvasDrawer = (function () {
         objNum = num;
     }
 
+    function getStrokeStyle() {
+        return strokeStyle;
+    }
+
     function setStrokeStyle(color) {
         strokeStyle = color;
+    }
+
+    function getLineWidth() {
+        return lineWidth;
     }
 
     function setLineWidth(width) {
@@ -90,52 +118,37 @@ var CanvasDrawer = (function () {
     }
 
     function init() {
-        WIDTH = $('#canvas').parent().innerWidth();
-        HEIGHT = $('#canvas').parent().innerHeight();
+        canvas = document.getElementById(canvasID);
+        ctx = canvas.getContext('2d');
         canvas.width = WIDTH;
         canvas.height = HEIGHT;
         ctx.strokeStyle = strokeStyle;
         ctx.lineWidth = lineWidth;
 
         for (var x = 0; x < objNum; x++) {
-            squareList.push(new Square(randomNum(WIDTH), randomNum(HEIGHT), randomNum(20, 25), randomNum(1, 4), randomNum(0, 90), randomNum(1, 3) * getDirection()));
+            objList.push(new Square(randomNum(WIDTH), randomNum(HEIGHT), randomNum(20, 25), randomNum(1, 4), randomNum(0, 90), randomNum(1, 3) * getDirection()));
 
-            circleList.push(new Circle(randomNum(WIDTH), randomNum(HEIGHT), randomNum(10, 13), randomNum(1, 4)));
+            objList.push(new Circle(randomNum(WIDTH), randomNum(HEIGHT), randomNum(10, 13), randomNum(1, 4)));
 
-            triangleList.push(new Triangle(randomNum(WIDTH), randomNum(HEIGHT), randomNum(20, 25), randomNum(1, 4), randomNum(0, 90), randomNum(1, 3) * getDirection()));
+            objList.push(new Triangle(randomNum(WIDTH), randomNum(HEIGHT), randomNum(20, 25), randomNum(1, 4), randomNum(0, 90), randomNum(1, 3) * getDirection()));
         }
     }
 
     function draw(timestamp) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (var x = 0; x < objNum; x++) {
-            var square = squareList[x];
-            square.y -= square.moveY;
-            square.angle += square.angularSpeed;
-            if (square.y < -20) {
-                square.y = HEIGHT;
-                square.x = randomNum(WIDTH);
-                square.moveY = randomNum(1, 4);
+        for (var x = 0; x < objNum * 3; x++) {
+            var obj = objList[x];
+            obj.y -= obj.moveY;
+            if (!(obj instanceof Circle)) {
+                obj.angle += obj.angularSpeed;
             }
-            var circle = circleList[x];
-            circle.y -= circle.moveY;
-            if (circle.y < -20) {
-                circle.y = HEIGHT;
-                circle.x = randomNum(WIDTH);
-                circle.moveY = randomNum(1, 4);
-            }
-            var triangle = triangleList[x];
-            triangle.y -= triangle.moveY;
-            triangle.angle += triangle.angularSpeed;
-            if (triangle.y < -20) {
-                triangle.y = HEIGHT;
-                triangle.x = randomNum(WIDTH);
-                triangle.moveY = randomNum(1, 4);
+            if (obj.y < -20) {
+                obj.y = HEIGHT;
+                obj.x = randomNum(WIDTH);
+                //obj.moveY = randomNum(1, 4);
             }
 
-            squareList[x].draw();
-            circleList[x].draw();
-            triangleList[x].draw();
+            obj.draw();
         }
         window.requestAnimationFrame(draw);
     }
@@ -146,11 +159,15 @@ var CanvasDrawer = (function () {
     }
 
     return {
+        setCanvasID: setCanvasID,
+        setCanvasSize: setCanvasSize,
         getObjNum: getObjNum,
         setObjNum: setObjNum,
+        getStrokeStyle: getStrokeStyle,
         setStrokeStyle: setStrokeStyle,
+        getLineWidth: getLineWidth,
         setLineWidth: setLineWidth,
-        init: init,
-        loadCanvas: loadCanvas
+        loadCanvas: loadCanvas,
+        resize: resize
     };
 })();

@@ -37,11 +37,17 @@ $(document).ready(function () {
     $('.dropdown-button').click(slide);
     $('.close-bar span').click(slide);
     
-    CanvasDrawer.setObjNum(8);
+    var width = $('#canvas').parent().innerWidth();
+    var height = $('#canvas').parent().innerHeight();
+    CanvasDrawer.setCanvasID('canvas');
+    CanvasDrawer.setCanvasSize(width,height);
+    CanvasDrawer.setObjNum(10);
     CanvasDrawer.loadCanvas();
 });
 
 
 $(window).resize(function(){
-   CanvasDrawer.init();
+    var width = $('#canvas').parent().innerWidth();
+    var height = $('#canvas').parent().innerHeight();
+   CanvasDrawer.resize(width,height);
 });
