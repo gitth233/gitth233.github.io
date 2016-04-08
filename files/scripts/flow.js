@@ -1,11 +1,12 @@
-var CanvasDrawer = (function () {
+var CanvasDrawer = function CanvasDrawer() {
     var canvas,
         canvasID,
         WIDTH,
         HEIGHT,
         ctx,
+        objNum = 0,
         objList = [],
-        objNum = 8,
+        resolution = [],
         strokeStyle = '#42A5F5',
         lineWidth = 3,
         toDegree = Math.PI / 180;
@@ -77,19 +78,42 @@ var CanvasDrawer = (function () {
     }
 
     function resize(width, height) {
+        var check;
         setCanvasSize(width, height);
         canvas.width = width;
         canvas.height = height;
         ctx.strokeStyle = strokeStyle;
         ctx.lineWidth = lineWidth;
+        check = changeObjNumOnResize();
+        if (objNum != check) {
+            objNum = check;
+            reset();
+        }
     }
 
-    function getObjNum() {
-        return objNum;
+    function reset() {
+        objList = [];
+        init();
+        createListObj();
     }
 
-    function setObjNum(num) {
-        objNum = num;
+    function changeObjNumOnResize() {
+        if (WIDTH > 1366)
+            return 0;
+        else if (WIDTH > 640)
+            return 1;
+        else
+            return 2;
+    }
+
+    function getObjNum(index) {
+        return resolution[objNum];
+    }
+
+    function setObjNum(num1, num2, num3) {
+        resolution[0] = num1;
+        resolution[1] = num2;
+        resolution[2] = num3;
     }
 
     function getStrokeStyle() {
@@ -118,14 +142,14 @@ var CanvasDrawer = (function () {
     }
 
     function init() {
-        canvas = document.getElementById(canvasID);
-        ctx = canvas.getContext('2d');
         canvas.width = WIDTH;
         canvas.height = HEIGHT;
         ctx.strokeStyle = strokeStyle;
         ctx.lineWidth = lineWidth;
+    }
 
-        for (var x = 0; x < objNum; x++) {
+    function createListObj() {
+        for (var x = 0; x < resolution[objNum]; x++) {
             objList.push(new Square(randomNum(WIDTH), randomNum(HEIGHT), randomNum(20, 25), randomNum(1, 4), randomNum(0, 90), randomNum(1, 3) * getDirection()));
 
             objList.push(new Circle(randomNum(WIDTH), randomNum(HEIGHT), randomNum(10, 13), randomNum(1, 4)));
@@ -136,7 +160,7 @@ var CanvasDrawer = (function () {
 
     function draw(timestamp) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (var x = 0; x < objNum * 3; x++) {
+        for (var x = 0; x < resolution[objNum] * 3; x++) {
             var obj = objList[x];
             obj.y -= obj.moveY;
             if (!(obj instanceof Circle)) {
@@ -154,7 +178,11 @@ var CanvasDrawer = (function () {
     }
 
     function loadCanvas() {
+        canvas = document.getElementById(canvasID);
+        ctx = canvas.getContext('2d');
         init();
+        objNum = changeObjNumOnResize(WIDTH);
+        createListObj();
         window.requestAnimationFrame(draw);
     }
 
@@ -170,4 +198,4 @@ var CanvasDrawer = (function () {
         loadCanvas: loadCanvas,
         resize: resize
     };
-})();
+};

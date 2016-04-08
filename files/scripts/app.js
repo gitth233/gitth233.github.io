@@ -1,3 +1,6 @@
+var headerCanvas,
+    footerCanvas;
+
 $(document).ready(function () {
     $('a[href^="#"]').on('click', function (e) {
         e.preventDefault();
@@ -36,18 +39,19 @@ $(document).ready(function () {
 
     $('.dropdown-button').click(slide);
     $('.close-bar span').click(slide);
-    
+
+    headerCanvas = CanvasDrawer();
     var width = $('#canvas').parent().innerWidth();
     var height = $('#canvas').parent().innerHeight();
-    CanvasDrawer.setCanvasID('canvas');
-    CanvasDrawer.setCanvasSize(width,height);
-    CanvasDrawer.setObjNum(10);
-    CanvasDrawer.loadCanvas();
+    headerCanvas.setCanvasID('canvas');
+    headerCanvas.setCanvasSize(width, height);
+    headerCanvas.setObjNum(30,20,10);
+    headerCanvas.loadCanvas();
 });
 
 
-$(window).resize(function(){
+$(window).resize(function () {
     var width = $('#canvas').parent().innerWidth();
     var height = $('#canvas').parent().innerHeight();
-   CanvasDrawer.resize(width,height);
+    headerCanvas.resize(width, height);
 });
