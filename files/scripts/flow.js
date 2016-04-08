@@ -87,14 +87,7 @@ var CanvasDrawer = function CanvasDrawer() {
         check = changeObjNumOnResize();
         if (objNum != check) {
             objNum = check;
-            reset();
         }
-    }
-
-    function reset() {
-        objList = [];
-        init();
-        createListObj();
     }
 
     function changeObjNumOnResize() {
@@ -106,7 +99,7 @@ var CanvasDrawer = function CanvasDrawer() {
             return 2;
     }
 
-    function getObjNum(index) {
+    function getObjNum() {
         return resolution[objNum];
     }
 
