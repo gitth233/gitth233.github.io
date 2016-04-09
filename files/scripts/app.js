@@ -45,7 +45,7 @@ $(document).ready(function () {
     var height = $('#canvas').parent().innerHeight();
     headerCanvas.setCanvasID('canvas');
     headerCanvas.setCanvasSize(width, height);
-    headerCanvas.setObjNum(30,20,10);
+    headerCanvas.setObjNum(20,15,5);
     headerCanvas.loadCanvas();
 });
 

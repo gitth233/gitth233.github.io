@@ -140,21 +140,23 @@ var CanvasDrawer = function CanvasDrawer() {
         ctx.strokeStyle = strokeStyle;
         ctx.lineWidth = lineWidth;
     }
-
-    function createListObj() {
-        for (var x = 0; x < resolution[objNum]; x++) {
-            objList.push(new Square(randomNum(WIDTH), randomNum(HEIGHT), randomNum(20, 25), randomNum(1, 4), randomNum(0, 90), randomNum(1, 3) * getDirection()));
+    
+    function createNewObj(){
+                    objList.push(new Square(randomNum(WIDTH), randomNum(HEIGHT), randomNum(20, 25), randomNum(1, 4), randomNum(0, 90), randomNum(1, 3) * getDirection()));
 
             objList.push(new Circle(randomNum(WIDTH), randomNum(HEIGHT), randomNum(10, 13), randomNum(1, 4)));
 
             objList.push(new Triangle(randomNum(WIDTH), randomNum(HEIGHT), randomNum(20, 25), randomNum(1, 4), randomNum(0, 90), randomNum(1, 3) * getDirection()));
-        }
     }
 
     function draw(timestamp) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         for (var x = 0; x < resolution[objNum] * 3; x++) {
             var obj = objList[x];
+            if(!obj){
+                createNewObj();
+                obj = objList[x];
+            }
             obj.y -= obj.moveY;
             if (!(obj instanceof Circle)) {
                 obj.angle += obj.angularSpeed;
@@ -175,7 +177,9 @@ var CanvasDrawer = function CanvasDrawer() {
         ctx = canvas.getContext('2d');
         init();
         objNum = changeObjNumOnResize(WIDTH);
-        createListObj();
+        for (var x = 0; x < resolution[objNum]; x++) {
+            createNewObj();
+        }
         window.requestAnimationFrame(draw);
     }
 
