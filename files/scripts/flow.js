@@ -1,4 +1,4 @@
-var CanvasDrawer = function CanvasDrawer() {
+var FlowDrawer = function () {
     var canvas,
         canvasID,
         WIDTH,
@@ -84,6 +84,7 @@ var CanvasDrawer = function CanvasDrawer() {
         canvas.height = height;
         ctx.strokeStyle = strokeStyle;
         ctx.lineWidth = lineWidth;
+        ctx.lineJoin = 'round';
         check = changeObjNumOnResize();
         if (objNum != check) {
             objNum = check;
@@ -91,12 +92,15 @@ var CanvasDrawer = function CanvasDrawer() {
     }
 
     function changeObjNumOnResize() {
-        if (WIDTH > 1366)
+        if (WIDTH > 1366){
             return 0;
-        else if (WIDTH > 640)
+        }
+        else if (WIDTH > 640){
             return 1;
-        else
+        }
+        else{
             return 2;
+        }
     }
 
     function getObjNum() {
@@ -135,25 +139,34 @@ var CanvasDrawer = function CanvasDrawer() {
     }
 
     function init() {
+        canvas = document.getElementById(canvasID);
+        ctx = canvas.getContext('2d');
         canvas.width = WIDTH;
         canvas.height = HEIGHT;
         ctx.strokeStyle = strokeStyle;
         ctx.lineWidth = lineWidth;
+        ctx.lineJoin ="round";
+        
+        objNum = changeObjNumOnResize(WIDTH);
+        for (var x = 0; x < resolution[objNum]; x++) {
+            createNewObj();
+        }
+        window.requestAnimationFrame(draw);
     }
-    
-    function createNewObj(){
-                    objList.push(new Square(randomNum(WIDTH), randomNum(HEIGHT), randomNum(20, 25), randomNum(1, 4), randomNum(0, 90), randomNum(1, 3) * getDirection()));
 
-            objList.push(new Circle(randomNum(WIDTH), randomNum(HEIGHT), randomNum(10, 13), randomNum(1, 4)));
+    function createNewObj() {
+        objList.push(new Square(randomNum(WIDTH), randomNum(HEIGHT), 20, randomNum(1, 4), randomNum(0, 90), randomNum(1, 3) * getDirection()));
 
-            objList.push(new Triangle(randomNum(WIDTH), randomNum(HEIGHT), randomNum(20, 25), randomNum(1, 4), randomNum(0, 90), randomNum(1, 3) * getDirection()));
+        objList.push(new Circle(randomNum(WIDTH), randomNum(HEIGHT), 10, randomNum(1, 4)));
+
+        objList.push(new Triangle(randomNum(WIDTH), randomNum(HEIGHT), 20, randomNum(1, 4), randomNum(0, 90), randomNum(1, 3) * getDirection()));
     }
 
     function draw(timestamp) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         for (var x = 0; x < resolution[objNum] * 3; x++) {
             var obj = objList[x];
-            if(!obj){
+            if (!obj) {
                 createNewObj();
                 obj = objList[x];
             }
@@ -172,17 +185,6 @@ var CanvasDrawer = function CanvasDrawer() {
         window.requestAnimationFrame(draw);
     }
 
-    function loadCanvas() {
-        canvas = document.getElementById(canvasID);
-        ctx = canvas.getContext('2d');
-        init();
-        objNum = changeObjNumOnResize(WIDTH);
-        for (var x = 0; x < resolution[objNum]; x++) {
-            createNewObj();
-        }
-        window.requestAnimationFrame(draw);
-    }
-
     return {
         setCanvasID: setCanvasID,
         setCanvasSize: setCanvasSize,
@@ -192,7 +194,7 @@ var CanvasDrawer = function CanvasDrawer() {
         setStrokeStyle: setStrokeStyle,
         getLineWidth: getLineWidth,
         setLineWidth: setLineWidth,
-        loadCanvas: loadCanvas,
+        init: init,
         resize: resize
     };
 };

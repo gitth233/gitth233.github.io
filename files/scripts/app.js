@@ -1,5 +1,6 @@
 var headerCanvas,
-    footerCanvas;
+    footerCanvas,
+    waveCanvas;
 
 $(document).ready(function () {
     $('a[href^="#"]').on('click', function (e) {
@@ -40,18 +41,25 @@ $(document).ready(function () {
     $('.dropdown-button').click(slide);
     $('.close-bar span').click(slide);
 
-    headerCanvas = CanvasDrawer();
-    var width = $('#canvas').parent().innerWidth();
-    var height = $('#canvas').parent().innerHeight();
-    headerCanvas.setCanvasID('canvas');
+    headerCanvas = new FlowDrawer();
+    var width = $('#flow-canvas').parent().innerWidth();
+    var height = $('#flow-canvas').parent().innerHeight();
+    headerCanvas.setCanvasID('flow-canvas');
     headerCanvas.setCanvasSize(width, height);
     headerCanvas.setObjNum(20,15,5);
-    headerCanvas.loadCanvas();
+    headerCanvas.init();
+    
+    waveCanvas =new WaveDrawer();
+    waveCanvas.setCanvasID('wave-canvas');
+    waveCanvas.setCanvasSize(width,height);
+    waveCanvas.setWavePosition(450);
+    waveCanvas.init();
 });
 
 
 $(window).resize(function () {
-    var width = $('#canvas').parent().innerWidth();
-    var height = $('#canvas').parent().innerHeight();
+    var width = $('#flow-canvas').parent().innerWidth();
+    var height = $('#flow-canvas').parent().innerHeight();
     headerCanvas.resize(width, height);
+    waveCanvas.resize(width,height);
 });

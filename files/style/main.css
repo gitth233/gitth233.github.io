@@ -17,7 +17,6 @@
 .navbar .navbar-right> li > a:hover {
     border-bottom: 2px solid #FEFEFE;
 }
-
 .navbar.solid.navbar-inverse {
     background: #1184F0;
 }
@@ -30,7 +29,6 @@
     background-color: #1184F0;
     border-bottom: 3px solid #0D47A1;
 }
-
 .navbar-inverse .navbar-nav>.active>a,
 .navbar-inverse .navbar-nav>.active>a:focus,
 .navbar-inverse .navbar-nav>.active>a:hover {
@@ -49,10 +47,13 @@
     padding-top: 8.5px;
     padding-bottom: 8.5px;
 }
-#canvas {
+canvas {
     position: absolute;
     top: 0;
     z-index: 0;
+}
+#wave-canvas {
+    z-index: 1;
 }
 #awesome-page-header {
     position: relative;
@@ -64,7 +65,7 @@
 #awesome-page-header >.container {
     position: relative;
     margin-bottom: 0px;
-    z-index: 1;
+    z-index: 2;
     color: #FEFEFE;
 }
 #awesome-page-header h1 {
@@ -133,13 +134,11 @@
     background-color: #29292D;
     color: #FEFEFE;
 }
-
 #projects .btn,
 #projects .btn.active:hover {
     background-color: #1184F0;
     border: 3px solid #1184F0;
 }
-
 body {
     background-color: #FEFEFE;
     font-family: 'Alegreya Sans', sans-serif;
