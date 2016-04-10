@@ -160,6 +160,8 @@ body {
     max-width: 300px;
     min-height: 300px;
     background-color: #FEFEFE;
+    margin-left: auto;
+    margin-right: auto;
 }
 .project-header {
     min-height: 70px;
