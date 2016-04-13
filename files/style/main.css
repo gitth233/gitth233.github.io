@@ -49,11 +49,17 @@
 }
 canvas {
     position: absolute;
-    top: 0;
     z-index: 0;
 }
 #wave-canvas {
     z-index: 1;
+    top: 0;
+}
+#flow-canvas {
+    top: 0;
+}
+#footer-canvas {
+    left: 0;
 }
 #awesome-page-header {
     position: relative;
@@ -157,26 +163,31 @@ body {
     padding-bottom: 80px;
 }
 .project-card {
-    max-width: 300px;
-    min-height: 300px;
+    max-width: 400px;
+    min-height: 340px;
     background-color: #FEFEFE;
+    margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
+    box-shadow: 3px 3px 3px #777777;
 }
 .project-header {
-    min-height: 70px;
+    min-height: 100px;
     background-color: #1184F0;
 }
 .project-card h3 {
-    margin: 0px;
-    color: #D1D1D1;
+    margin: 13px;
+    color: #FEFEFE;
 }
 .project-card small {
     float: left;
     margin: 10px 10px 0px 10px;
+    color: #D1D2D2;
 }
 .project-details {
-    margin: 10px 15px 0px 15px;
+    margin: 10px 15px;
+    max-height: 400px;
+    overflow: scroll;
 }
 .project-details p {
     text-align: justify;
@@ -184,8 +195,21 @@ body {
 .clear {
     clear: both;
 }
-.container .left {
+.container .content {
     text-align: left;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+span.dotted {
+    border-bottom: 1px dotted #29292D;
+}
+.popover {
+    max-width: 100%;
+}
+p.align-right {
+    text-align: right;
+    margin-right: 15px;
 }
 footer {
     background-color: #29292D;
@@ -193,6 +217,10 @@ footer {
     text-align: center;
     color: #D1D2D2;
     padding-bottom: 20px;
+}
+footer > div.container {
+    position: relative;
+    z-index: 1;
 }
 footer h1 {
     font-size: 3em;

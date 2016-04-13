@@ -92,7 +92,6 @@ var FlowDrawer = function () {
         canvas.height = height;
         ctx.strokeStyle = strokeStyle;
         ctx.lineWidth = lineWidth;
-        ctx.lineJoin = 'round';
 
         // Check if the canvas requires to change the number of the objects
         check = changeObjNumOnResize();
@@ -160,7 +159,6 @@ var FlowDrawer = function () {
         canvas.height = HEIGHT;
         ctx.strokeStyle = strokeStyle;
         ctx.lineWidth = lineWidth;
-        ctx.lineJoin = "round";
 
         // Create the objects based on the current size of the canvas
         objNum = changeObjNumOnResize(WIDTH);
@@ -172,11 +170,11 @@ var FlowDrawer = function () {
 
     // Create Objects function
     function createNewObj() {
-        objList.push(new Square(randomNum(WIDTH), randomNum(HEIGHT), 20, randomNum(1, 2), randomNum(0, 90), randomNum(1, 3) * getDirection()));
+        objList.push(new Square(randomNum(WIDTH), randomNum(HEIGHT), 20, 2, randomNum(0, 90), randomNum(1, 3) * getDirection()));
 
-        objList.push(new Circle(randomNum(WIDTH), randomNum(HEIGHT), 10, randomNum(1, 2)));
+        objList.push(new Circle(randomNum(WIDTH), randomNum(HEIGHT), 10, 2));
 
-        objList.push(new Triangle(randomNum(WIDTH), randomNum(HEIGHT), 20, randomNum(1, 2), randomNum(0, 90), randomNum(1, 3) * getDirection()));
+        objList.push(new Triangle(randomNum(WIDTH), randomNum(HEIGHT), 20, 2, randomNum(0, 90), randomNum(1, 3) * getDirection()));
     }
 
     // Update the graph with objects' current status
