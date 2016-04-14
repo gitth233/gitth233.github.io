@@ -1,3 +1,9 @@
+.navbar.mobile {
+    border-bottom: 1px solid #FEFEFE;
+}
+.mobile #myNavbar {
+    border: 1px solid #FEFEFE;
+}
 .navbar {
     border: transparent;
     background-color: transparent;
@@ -19,6 +25,9 @@
 }
 .navbar.solid.navbar-inverse {
     background: #1184F0;
+}
+.navbar-toggle.collapsed {
+    border-color: #FEFEFE;
 }
 .navbar.solid .navbar-brand,
 .navbar.solid .navbar-right > li > a {
