@@ -1,4 +1,4 @@
-$(document).ready(function () {
+(function () {
     var headerCanvas,
         footerCanvas,
         waveCanvas,
@@ -99,4 +99,4 @@ $(document).ready(function () {
         waveCanvas.resize(canvasWidth, headerHeight);
         footerCanvas.resize(canvasWidth, footerHeight);
     });
-});
+}());

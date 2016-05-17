@@ -119,9 +119,6 @@ canvas {
 #experience img {
     margin: 100px auto 80px;
 }
-#resume {
-    margin-bottom: 160px;
-}
 .close-bar {
     width: 100%;
 }
@@ -168,17 +165,19 @@ body {
     background-color: #f1f1f1;
 }
 #projects .container {
+    text-align: left;
     margin-top: 0px;
     padding-bottom: 80px;
 }
 .project-card {
     max-width: 400px;
-    min-height: 340px;
+    min-height: 300px;
     background-color: #FEFEFE;
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
     box-shadow: 3px 3px 3px #777777;
+    text-align: center;
 }
 .project-header {
     min-height: 100px;
@@ -188,18 +187,23 @@ body {
     margin: 13px;
     color: #FEFEFE;
 }
-.project-card small {
+.project-card > .project-header small {
     float: left;
     margin: 10px 10px 0px 10px;
     color: #D1D2D2;
 }
-.project-details {
-    margin: 10px 15px;
-    max-height: 400px;
-    overflow: scroll;
+.project-details > small {
+    margin-left: 10px;
+    color: #29292D;
 }
-.project-details p {
-    text-align: justify;
+.project-details {
+    margin: 10px 10px;
+    max-height: 300px;
+    overflow: scroll;
+    text-align: left;
+}
+#education {
+    margin-bottom: 60px;
 }
 .clear {
     clear: both;
