@@ -70,25 +70,37 @@
 
     // Initialize header animation
     headerCanvas = new FlowDrawer();
-    headerCanvas.setCanvasID('flow-canvas');
-    headerCanvas.setCanvasSize(canvasWidth, headerHeight);
-    headerCanvas.setObjNum(20, 15, 5);
-    headerCanvas.init();
+    headerCanvas.init({
+        id: 'flow-canvas',
+        width: canvasWidth,
+        height: headerHeight,
+        strokeStyle: '#42A5F5',
+        num_lg: 20,
+        num_md: 15,
+        num_sm: 10
+    });
 
     // Initialize header animation
     waveCanvas = new WaveDrawer();
-    waveCanvas.setCanvasID('wave-canvas');
-    waveCanvas.setCanvasSize(canvasWidth, headerHeight);
-    waveCanvas.setWavePosition(450);
-    waveCanvas.init();
+    waveCanvas.init({
+        id: 'wave-canvas',
+        width: canvasWidth,
+        height: headerHeight,
+        wave_position: 450,
+        fillStyle: '#42A5F5'
+    });
 
     // Initialize footer animation
     footerCanvas = new FlowDrawer();
-    footerCanvas.setCanvasID('footer-canvas');
-    footerCanvas.setCanvasSize(canvasWidth, footerHeight);
-    footerCanvas.setStrokeStyle('#616161');
-    footerCanvas.setObjNum(5, 3, 2);
-    footerCanvas.init();
+    footerCanvas.init({
+        id: 'footer-canvas',
+        width: canvasWidth,
+        height: footerHeight,
+        strokeStyle: '#616161',
+        num_lg: 10,
+        num_md: 8,
+        num_sm: 4
+    });
 
     // Bind an event handler to the window
     $(window).resize(function () {

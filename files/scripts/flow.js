@@ -1,13 +1,12 @@
 var FlowDrawer = function () {
     var canvas,
-        canvasID,
         WIDTH,
         HEIGHT,
         ctx,
+        strokeStyle,
         objNum = 0,
         objList = [],
         resolution = [],
-        strokeStyle = '#42A5F5',
         lineWidth = 3,
         toDegree = Math.PI / 180;
 
@@ -75,21 +74,20 @@ var FlowDrawer = function () {
         ctx.setTransform(1, 0, 0, 1, 0, 0);
     };
 
-    function setCanvasID(id) {
-        canvasID = id;
-    }
-
     function setCanvasSize(width, height) {
         WIDTH = width;
         HEIGHT = height;
+        
+        canvas.width = width;
+        canvas.height = height;
     }
 
     // Call the function when the size of the canvas is changed
     function resize(width, height) {
         var check;
+        
         setCanvasSize(width, height);
-        canvas.width = width;
-        canvas.height = height;
+        
         ctx.strokeStyle = strokeStyle;
         ctx.lineWidth = lineWidth;
 
@@ -124,17 +122,10 @@ var FlowDrawer = function () {
         resolution[2] = num3;
     }
 
-    function getStrokeStyle() {
-        return strokeStyle;
-    }
-
     function setStrokeStyle(color) {
         strokeStyle = color;
     }
 
-    function getLineWidth() {
-        return lineWidth;
-    }
 
     function setLineWidth(width) {
         lineWidth = width;
@@ -152,11 +143,16 @@ var FlowDrawer = function () {
     }
 
     // Initailze the canvas
-    function init() {
-        canvas = document.getElementById(canvasID);
+    function init(opts) {
+        canvas = document.getElementById(opts.id);
         ctx = canvas.getContext('2d');
-        canvas.width = WIDTH;
-        canvas.height = HEIGHT;
+
+        setObjNum(opts.num_lg, opts.num_md, opts.num_sm);
+
+        setCanvasSize(opts.width,opts.height);
+
+        strokeStyle = opts.strokeStyle;
+
         ctx.strokeStyle = strokeStyle;
         ctx.lineWidth = lineWidth;
 
@@ -179,7 +175,7 @@ var FlowDrawer = function () {
 
     // Update the graph with objects' current status
     function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, WIDTH, HEIGHT);
         for (var x = 0; x < resolution[objNum] * 3; x++) {
             var obj = objList[x];
             if (!obj) {
@@ -203,13 +199,9 @@ var FlowDrawer = function () {
 
     // Expose only the public functions to the user
     return {
-        setCanvasID: setCanvasID,
-        setCanvasSize: setCanvasSize,
         getObjNum: getObjNum,
         setObjNum: setObjNum,
-        getStrokeStyle: getStrokeStyle,
         setStrokeStyle: setStrokeStyle,
-        getLineWidth: getLineWidth,
         setLineWidth: setLineWidth,
         init: init,
         resize: resize

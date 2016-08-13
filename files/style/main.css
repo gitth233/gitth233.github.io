@@ -202,7 +202,7 @@ body {
 .project-details {
     margin: 10px 10px;
     max-height: 300px;
-    overflow: scroll;
+    overflow: auto;
     text-align: left;
 }
 #education {

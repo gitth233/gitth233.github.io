@@ -4,17 +4,23 @@ var WaveDrawer = function () {
         WIDTH,
         HEIGHT,
         WAVEPOSITION,
+        fillStyle,
         ctx,
         wave;
 
     // Initialize the canvas 
-    function init() {
-        canvas = document.getElementById(canvasID);
+    function init(opts) {
+        canvas = document.getElementById(opts.id);
         ctx = canvas.getContext('2d');
-        canvas.width = WIDTH;
-        canvas.height = HEIGHT;
-        ctx.fillStyle = '#42A5F5';
+
+        setCanvasSize(opts.width,opts.height);
+
+        fillStyle = opts.fillStyle;
+        ctx.fillStyle = fillStyle;
+
         ctx.lineJoin = 'round';
+
+        WAVEPOSITION = opts.wave_position;
 
         wave = new sineWave();
 
@@ -26,17 +32,13 @@ var WaveDrawer = function () {
         window.requestAnimationFrame(draw);
     }
 
-    function setCanvasID(id) {
-        canvasID = id;
-    }
 
     function setCanvasSize(width, height) {
         WIDTH = width;
         HEIGHT = height;
-    }
-
-    function setWavePostion(position) {
-        WAVEPOSITION = position;
+        
+        canvas.width = width;
+        canvas.height = height;
     }
 
     function setAmplitude(amplitude) {
@@ -143,17 +145,12 @@ var WaveDrawer = function () {
     // Call the function when the size of the canvas is changed
     function resize(width, height) {
         setCanvasSize(width, height);
-        canvas.width = width;
-        canvas.height = height;
         ctx.fillStyle = '#42A5F5';
     }
 
     // Expose only the public functions to the user
     return {
         init: init,
-        setCanvasID: setCanvasID,
-        setCanvasSize: setCanvasSize,
-        setWavePosition: setWavePostion,
         setAmplitude: setAmplitude,
         resize: resize
     };
