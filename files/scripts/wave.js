@@ -8,7 +8,7 @@ var WaveDrawer = function () {
         ctx,
         wave;
 
-    // Initialize the canvas 
+    // Initialize the canvas
     function init(opts) {
         canvas = document.getElementById(opts.id);
         ctx = canvas.getContext('2d');
@@ -36,7 +36,7 @@ var WaveDrawer = function () {
     function setCanvasSize(width, height) {
         WIDTH = width;
         HEIGHT = height;
-        
+
         canvas.width = width;
         canvas.height = height;
     }
@@ -51,7 +51,7 @@ var WaveDrawer = function () {
         }
     */
 
-    // Sine wave object 
+    // Sine wave object
     function sineWave() {
         this.amplitude = 30;
         this.counter = 1;
@@ -143,9 +143,9 @@ var WaveDrawer = function () {
     }
 
     // Call the function when the size of the canvas is changed
-    function resize(width, height) {
+    function resize(width = window.innerWidth, height = window.innerHeight) {
         setCanvasSize(width, height);
-        ctx.fillStyle = '#42A5F5';
+        ctx.fillStyle = fillStyle;
     }
 
     // Expose only the public functions to the user
