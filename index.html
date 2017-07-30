@@ -12,13 +12,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- FONT –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- CSS –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="node_modules/bulma/css/bulma.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style>
-  .nav { position: fixed !important; top: 0; left: 0; right: 0; }
-  </style>
+
 </head>
 <body>
 
@@ -46,18 +43,18 @@
     <canvas id="wave-canvas" class="is-overlay"></canvas>
     <div class="container has-text-right">
       <h1 class="title is-1 is-spaced is-unselectable">Tan He</h1>
-      <h2 class="subtitle is-3 is-unselectable is-hidden-mobile">Developer, Designer, Video Game Nerd</h2>
+      <h2 class="subtitle is-3 is-unselectable is-hidden-mobile">Just a student.</h2>
     </div>
   </div>
 
   <div class="hero-foot">
     <nav class="tabs is-boxed">
       <div class="container">
-        <ul id="banner-tabs">
-          <li><a>Projects</a></li>
-          <li class="is-active"><a>Experience</a></li>
-          <li><a>Education</a></li>
-          <li><a class="is-pulled-right">Contact</a></li>
+        <ul id="section-tabs">
+          <li data-target="projects"><a>Projects</a></li>
+          <li data-target="experience" class="is-active"><a>Experience</a></li>
+          <li data-target="education"><a>Education</a></li>
+          <li data-target="contact"><a>Contact</a></li>
         </ul>
       </div>
     </nav>
@@ -65,8 +62,13 @@
 
 </section>
 <!-- End Awesome Fullscreen Banner -->
-
-<section class="section" id="experience">
+<section class="section" id="projects">
+  <div class="has-text-centered">
+    <h1 class="title is-2">Whoops. You are here too early. Please come back later. </h1>
+    <span class="title is-1" data-onhover="( ヘ ･_･ )ヘ ┳━┳" data-descr="(┛◉Д◉)┛彡┻━┻"></span>
+  </div>
+</section>
+<section class="section is-active" id="experience">
   <div class="timeline">
     <ul>
       <li>
@@ -121,11 +123,36 @@
 </section>
 
 <section class="section" id="education">
-  <div class="container">
-
+  <div class="columns is-vcentered">
+    <div class="content-wrapper column is-6 is-offset-1">
+      <h2 class="title is-5">University of Waterloo <span class="is-pulled-right">2015 - 2020</span></h2>
+      <h3 class="subtitle is-6">Bachelor of Applied Science(B.A.Sc.), Computer Engineering</h3>
+      <div class="content">
+        <p>Just a few courses I have taken:</p>
+        <ul>
+          <li>Operating Systems and Systems Programming</li>
+          <li>Algorithms and Data Structures</li>
+          <li>Digital Computers</li>
+          <li>Digital Circuits and Systems</li>
+          <li>Electronic Circuits</li>
+          <li>...</li>
+        </ul>
+    </div>
+    </div>
+    <div class="image-wrapper column">
+      <figure class="image">
+        <img src="files/img/UniversityOfWaterloo_logo.png" alt="University of Waterloo Logo"/>
+      </figure>
+    </div>
   </div>
 </section>
 
+<section class="section" id="contact">
+  <div class="has-text-centered">
+    <h1 class="title is-2">Whoops. You are here too early. Please come back later. </h1>
+    <span class="title is-1" data-onhover="( ヘ ･_･ )ヘ ┳━┳" data-descr="(┛◉Д◉)┛彡┻━┻"></span>
+  </div>
+</section>
 <!-- Start Awesome Footer -->
 <footer class="footer">
   <div class="container">
@@ -147,6 +174,7 @@
 </footer>
 <!-- End Awesome Footer -->
 <!-- Javascript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
 <script src="./files/scripts/wave.js"></script>
 <script type="application/javascript">
 // Initialize header animation
@@ -161,7 +189,46 @@ waveCanvas.init({
 window.addEventListener('resize', waveCanvas.resize(window.innerWidth, document.getElementById('fullscreen-banner').offsetHeight), false);
 </script>
 <script type="application/javascript">
-var tabs = document.getElementById('banner-tabs');
+function isElementInViewport(el) {
+  var rect = el.getBoundingClientRect();
+  return (
+    rect.top >=0 &&
+    rect.left >=0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
+var items = document.querySelectorAll(".timeline li");
+
+function callbackFunc() {
+  for (var i = 0; i < items.length; i++) {
+    if (isElementInViewport(items[i])) {
+      items[i].classList.add("in-view");
+    }
+  }
+}
+
+window.addEventListener("load", callbackFunc);
+window.addEventListener("scroll", callbackFunc);
+
+var sectionTabs = document.querySelectorAll("#section-tabs li"),
+    sections = document.querySelectorAll("section.section");
+
+function switchTab(){
+  var sectionTab = this,
+      section = document.getElementById(sectionTab.dataset.target);
+  for (var i =0; i < sections.length; i++) {
+    sectionTabs[i].classList.remove("is-active");
+    sections[i].classList.remove("is-active");
+  }
+  sectionTab.classList.add("is-active");
+  section.classList.add("is-active");
+}
+
+for (var i = 0; i < sections.length; i++ ) {
+  sectionTabs[i].addEventListener("click", switchTab);
+}
 
 </script>
 <!-- End Document
