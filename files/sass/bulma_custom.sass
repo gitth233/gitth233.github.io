@@ -1,0 +1,39 @@
+// A great lightweight CSS framework => bulma.io | MIT License | github.com/jgthms/bulma
+// version v0.4.2
+// import only the modules used to reduce css size and customize the theme
+
+@charset "utf-8"
+
+$primary-lighter: #7FEBD3
+
+@import "../../node_modules/bulma/sass/utilities/_all"
+
+@import "../../node_modules/bulma/sass/base/_all"
+@import "../../node_modules/bulma/sass/layout/_all"
+
+@import "../../node_modules/bulma/sass/elements/icon"
+
+@import "../../node_modules/bulma/sass/grid/columns"
+
+@import "sass/timeline/timeline"
+
+.nav
+  position: fixed !important
+  top: 0
+  left: 0
+  right: 0
+
+html ::selection
+  background: $primary
+  color: $primary-invert
+
+.section
+  display: none
+  &.is-active
+    display: inherit
+
+span[data-onhover]
+  &:hover:after
+    content: attr(data-onhover)
+  &:after
+    content: attr(data-descr)

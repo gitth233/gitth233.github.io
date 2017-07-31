@@ -1,175 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Tan He</title>
-    <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans|Ubuntu' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="files/style/main.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Basic Page Needs –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Tan He</title>
+  <meta name="description" content="Tan's Personal Website">
+  <meta name="author" content="Tan He: tan.he@edu.uwaterloo.ca">
+
+  <!-- Mobile Specific Metas –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- CSS –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="./files/css/bulma.css">
+
 </head>
+<body>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="80">
+<!-- Primary Page Layout –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand nav-icon"><span>Tan</span> He</a>
-                <button aria-expanded="false" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div aria-expanded="false" class="navbar-collapse collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="files/doc/tanhe_resume.pdf" target="_blank">Resume</a></li>
-                </ul>
-                <div class="nav navbar-nav">
-                    <a class="navbar-brand nav-link" href="mailto:tan.he@uwaterloo.ca">
-                        <span class="fa fa-envelope fa-2x"></span>
-                    </a>
-                    <a class="navbar-brand nav-link" href="https://github.com/Tan-He">
-                        <span class="fa fa-github-square fa-2x"></span>
-                    </a>
-                    <a class="navbar-brand nav-link" href="https://ca.linkedin.com/in/tanhe0">
-                        <span class="fa fa-linkedin-square fa-2x"></span>
-                    </a>
-                </div>
-            </div>
-
+<!-- Start Awesome Fullscreen Banner -->
+<section class="hero is-fullheight is-primary" id="fullscreen-banner">
+   <div class="hero-head">
+    <header class="nav">
+      <div class="container">
+        <div class="nav-left">
+          <a class="nav-item">Tan He</a>
         </div>
-    </nav>
-
-    <div id="awesome-page-header" class="jumbotron">
-        <canvas id="flow-canvas"></canvas>
-        <canvas id="wave-canvas"></canvas>
-        <div class="container">
-            <h1>Tan He</h1>
-            <h3>1B Computer Engineering | University of Waterloo</h3>
-            <button class="btn btn-default btn-lg dropdown-button">About Me</button>
+        <div class="nav-right nav-menu">
+          <a class="nav-item" href="https://github.com/Tan-He" target="_blank">Github</a>
+          <a class="nav-item" href="https://ca.linkedin.com/in/tanhe0" target="_blank">LinkedIn</a>
+          <a class="nav-item" href="#todo" target="_blank">Resume</a>
         </div>
+      </div>
+    </header>
+  </div>
 
+
+  <div class="hero-body">
+    <canvas id="wave-canvas" class="is-overlay"></canvas>
+    <div class="container has-text-right">
+      <h1 class="title is-1 is-spaced is-unselectable">Tan He</h1>
+      <h2 class="subtitle is-3 is-unselectable is-hidden-mobile">Just a student.</h2>
     </div>
+  </div>
 
-    <section id="about">
-        <div class="jumbotron">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img class="img-thumbnail img-circle" src="files/img/me.jpg"></div>
-                    <div class="col-md-8">
-                        <h2>Hello,</h2>
-                        <p class="lead">My name is Tan He, a computer engineering student at the University of Waterloo. I'm passionate about programming and the new technology as I would like to self-study them during my spare time. (usually at night. Yes, I'm a coffee
-                            addcit) If you have any questions or just want to find someone to chat with, shoot me an email or find me on Github. I'm always open to chat!</p>
-                    </div>
-                </div>
+  <div class="hero-foot">
+    <nav class="tabs is-boxed">
+      <div class="container">
+        <ul id="section-tabs">
+          <li data-target="projects"><a>Projects</a></li>
+          <li data-target="experience" class="is-active"><a>Experience</a></li>
+          <li data-target="education"><a>Education</a></li>
+          <li data-target="contact"><a>Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</section>
+<!-- End Awesome Fullscreen Banner -->
+<section class="section" id="projects">
+  <div class="has-text-centered">
+    <h1 class="title is-2">Whoops. You are here too early. Please come back later. </h1>
+    <span class="title is-1" data-onhover="( ヘ ･_･ )ヘ ┳━┳" data-descr="(┛◉Д◉)┛彡┻━┻"></span>
+  </div>
+</section>
+<section class="section is-active" id="experience">
+  <div class="timeline">
+    <ul>
+      <li>
+        <div class="timeline-container">
+          <div class="columns is-vcentered">
+            <div class="content-wrapper column is-6">
+              <h2 class="title is-5">Full Stack Developer</h2>
+              <h3 class="subtitle is-6">Tulip Retail</h3>
+              <span>May to Aug. 2017</span>
             </div>
-            <div class="close-bar">
-                <span class="fa fa-angle-up fa-inverse fa-2x"></span>
+            <div class="image-wrapper column">
+              <figure class="image">
+                <img src="files/img/TulipRetail-mainlogo-pink.png" alt="tulip retail logo"/>
+              </figure>
             </div>
+          </div>
         </div>
-    </section>
-
-    <section id="experience">
-        <div class="container">
-            <div class="page-header">
-                <h1>Experience</h1>
+      </li>
+      <li>
+        <div class="timeline-container">
+          <div class="columns is-vcentered">
+            <div class="content-wrapper column is-6">
+              <h2 class="title is-5">Web Application Developer</h2>
+              <h3 class="subtitle is-6">AlertDriving</h3>
+              <span>Sept. to Dec. 2016</span>
             </div>
-            <div class="row content">
-                <div class="col-md-8">
-                    <div class="contentWrapper">
-                        <h2>AlertDriving</h2>
-                        <h3>Web Application Developer</h3>
-                        <h4 class="text-muted">Sept. to Dec. 2016</h4>
-                        <ul class="lead">
-                            <li>Added new features to the driver training web application and internal management system using Zend MVC framework and Domain Driven Design</li>
-                            <li>Developed tools using PHP to migrate customer resources, generate MySQL query script, and clean up legacy code base</li>
-                            <li>Implemented front end user interface customization to meet customer requirements</li>
-                            <li>Participated in daily scrum and sprint planning meetings</li>
-                        </ul>
-                        <h4>Tools: VMWare, Debian, Apache, MySQL, Jenkins</h4>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <img src="files/img/Alertdriving_logo.svg" class="img-responsive" alt="Alertdriving">
-                </div>
+            <div class="image-wrapper column">
+              <figure class="image">
+                <img src="files/img/Alertdriving_logo.svg" alt="alertdriving logo"/>
+              </figure>
             </div>
-            <div class="row content">
-                <div class="col-md-8">
-                    <div class="contentWrapper">
-                        <h2>Ultimate Software</h2>
-                        <h3>TechStar - Software Test Engineer</h3>
-                        <h4 class="text-muted">Jan. to Apr. 2016</h4>
-                        <ul class="lead">
-                            <li>Created and maintained test cases and automation scripts for web and android applications</li>
-                            <li>Performed upgrade testing, stress testing and regression testing</li>
-                            <li>Exposed to Agile software development environment and gained experience in web and mobile technologies</li>
-                            <li>Tracked and followed product defects through the resolution process </li>
-                        </ul>
-                        <h4>Tools: Visual Studio, Sql Server, Apache Tomcat, <span class="dotted" data-toggle="tooltip" data-placement="bottom" title="Android Debug Bridge">ADB</span></h4>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <img src="files/img/UltimateSoftware_logo.png" class="img-responsive" alt="Ultimate Software">
-                </div>
-            </div>
+          </div>
         </div>
-    </section>
-
-    <section id="education">
-        <div class="container">
-            <div class="page-header">
-                <h1>Education</h1></div>
-            <div class="row content">
-                <div class="col-md-8">
-                    <h2>University of Waterloo</h2>
-                    <h3 class="text-muted">Bachelor of Applied Science(B.A.Sc.),
-                        <span class="dotted" data-toggle="popover" data-placement ="top" title="What is Computer Engineering?" data-content="&quot;Computer engineering draws upon Waterloo's strengths in electrical engineering and computer science. Students gain experience with all aspects of computers, from chips and wiring through to software, networks, and communications.&quot;">Computer Engineering </span></h3>
-                    <h4 class="text-muted">2015 - present</h4>
-
-                    <ul class="lead">
-                        <li>Relavent Courses:
-                            <ul>
-                                <li>ECE 150 - Fundamentals of Programming (C/C++)</li>
-                                <li>ECE 155 - Embedded Systems (Java/Android)</li>
-                                <li>ECE 124 - Digital Circuits and Systems (VHDL)</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <img class="img-responsive" src="files/img/UniversityOfWaterloo_logo.png" alt="University of Waterloo">
-                </div>
+      </li>
+      <li>
+        <div class="timeline-container">
+          <div class="columns is-vcentered">
+            <div class="content-wrapper column is-6">
+              <h2 class="title is-5">QA Automation Developer</h2>
+              <h3 class="subtitle is-6">Ultimate Software</h3>
+              <span>Jan. to Apr. 2016</span>
             </div>
+            <div class="image-wrapper column">
+              <figure class="image">
+                <img src="files/img/Ultimate_Software_Logo.png" alt="Ultimate Software logo"/>
+              </figure>
+            </div>
+          </div>
         </div>
-    </section>
+      </li>
+    </ul>
+</section>
 
-    <footer class="footer">
-        <canvas id="footer-canvas"></canvas>
-        <div class="container">
-            <h1>Contact Me</h1>
-            <h3>Have questions? Find me on
-            <a href="https://github.com/Tan-He">GitHub</a>
-             and
-            <a href="https://ca.linkedin.com/in/tanhe0">LinkedIn</a>
-            </h3>
-            <h3>Email: tan.he@uwaterloo.ca</h3>
+<section class="section" id="education">
+  <div class="columns is-vcentered">
+    <div class="content-wrapper column is-6 is-offset-1">
+      <h2 class="title is-3">University of Waterloo <span class="is-pulled-right">2015 - 2020</span></h2>
+      <h3 class="subtitle is-5">Bachelor of Applied Science(B.A.Sc.), Computer Engineering</h3>
+      <div class="content">
+        <p>Just a few courses I have taken:</p>
+        <ul>
+          <li>Operating Systems and Systems Programming</li>
+          <li>Algorithms and Data Structures</li>
+          <li>Digital Computers</li>
+          <li>Digital Circuits and Systems</li>
+          <li>Electronic Circuits</li>
+          <li>...</li>
+        </ul>
+    </div>
+    </div>
+    <div class="image-wrapper column">
+      <figure class="image">
+        <img src="files/img/UniversityOfWaterloo_logo.png" alt="University of Waterloo Logo"/>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <article class="message is-success is-hidden" id="success-message">
+  <div class="message-header">
+    <p>Success</p>
+    <button class="delete"></button>
+  </div>
+  <div class="message-body">
+    Your message has been sent. I will get back to you ASAP. Cheers!
+  </div>
+</article>
+<article class="message is-warning is-hidden" id="error-message">
+  <div class="message-header">
+    <p>Failed! Your message wasn't sent.</p>
+    <button class="delete"></button>
+  </div>
+  <div class="message-body">
+    Whoops. Something is wrong. Please try again later. <span data-onhover="( ヘ ･_･ )ヘ ┳━┳" data-descr="(┛◉Д◉)┛彡┻━┻"></span>
+  </div>
+</article>
+  <div class="columns">
+    <form class="column is-6 is-offset-1" action="https://tanhe-mailservice.herokuapp.com/" method="post">
+      <div class="field">
+        <label class="label">Name</label>
+        <div class="control has-icons-left">
+          <input class="input" type="text" placeholder="Name" name="name" required>
+          <span class="icon is-small is-left">
+            <i class="fa fa-user"></i>
+          </span>
         </div>
-    </footer>
+      </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="files/scripts/flow.js"></script>
-    <script src="files/scripts/wave.js"></script>
-    <script src="files/scripts/app.js"></script>
+      <div class="field">
+        <label class="label">Email</label>
+        <div class="control has-icons-left">
+          <input class="input" type="text" placeholder="Email" name="email" required>
+          <span class="icon is-small is-left">
+            <i class="fa fa-envelope"></i>
+          </span>
+        </div>
+      </div>
 
+      <div class="field">
+        <label class="label">Message</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="Hello..." name="message"></textarea>
+        </div>
+      </div>
+
+      <div class="control">
+        <button class="button is-primary">Submit</button>
+      </div>
+    </form>
+    <div class="container column">
+      <h3 class="title is-4 has-text-centered">Contact Information</h3>
+      <div class="content">
+        <p><span class="icon is-left">
+          <i class="fa fa-envelope"></i>
+        </span> Mail: tan.he@edu.uwaterloo.ca</p>
+        <p><span class="icon is-left">
+          <i class="fa fa-linkedin"></i>
+        </span> LinkedIn: https://ca.linkedin.com/in/tanhe0</p>
+        <p><span class="icon is-left">
+          <i class="fa fa-github"></i>
+        </span> Github: https://github.com/Tan-He</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Start Awesome Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>Copyright © <script>document.write(new Date().getFullYear())</script> Tan He</p>
+      <p>
+        <a class="icon" href="https://github.com/Tan-He">
+          <i class="fa fa-github"></i>
+        </a>
+        <a class="icon" href="https://ca.linkedin.com/in/tanhe0">
+          <i class="fa fa-linkedin"></i>
+        </a>
+        <a class="icon" href="mailto:tan.he@edu.uwaterloo.ca">
+          <i class="fa fa-envelope"></i>
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
+<!-- End Awesome Footer -->
+<!-- Javascript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
+<script src="./files/scripts/wave.js"></script>
+<script type="application/javascript">
+// Initialize header animation
+waveCanvas = new WaveDrawer();
+waveCanvas.init({
+    id: 'wave-canvas',
+    width: window.innerWidth,
+    height: document.getElementById('fullscreen-banner').offsetHeight,
+    wave_position: 450,
+    fillStyle: '#7FEBD3'
+});
+window.addEventListener('resize', waveCanvas.resize(window.innerWidth, document.getElementById('fullscreen-banner').offsetHeight), false);
+</script>
+<script type="application/javascript">
+function isElementInViewport(el) {
+  var rect = el.getBoundingClientRect();
+  return (
+    rect.top >=0 &&
+    rect.left >=0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
+var items = document.querySelectorAll(".timeline li");
+
+function callbackFunc() {
+  for (var i = 0; i < items.length; i++) {
+    if (isElementInViewport(items[i])) {
+      items[i].classList.add("in-view");
+    }
+  }
+}
+
+window.addEventListener("load", callbackFunc);
+window.addEventListener("scroll", callbackFunc);
+
+// TODO: seperate js files
+var sectionTabs = document.querySelectorAll("#section-tabs li"),
+    sections = document.querySelectorAll("section.section");
+
+function switchTab(){
+  var sectionTab = this,
+      section = document.getElementById(sectionTab.dataset.target);
+  for (var i =0; i < sections.length; i++) {
+    sectionTabs[i].classList.remove("is-active");
+    sections[i].classList.remove("is-active");
+  }
+  sectionTab.classList.add("is-active");
+  section.classList.add("is-active");
+}
+
+for (var i = 0; i < sections.length; i++ ) {
+  sectionTabs[i].addEventListener("click", switchTab);
+}
+
+// get mail parameter
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+var mailStatus = getParameterByName('mail');
+if(mailStatus){
+  document.querySelector('#section-tabs li[data-target="contact"]').click();
+  if(mailStatus === 'success') {
+    document.getElementById("success-message").classList.remove("is-hidden");
+  }else if(mailStatus === 'error') {
+    document.getElementById("error-message").classList.remove("is-hidden");
+  }
+}
+  var messageClose = document.querySelectorAll('article.message button.delete');
+  for(var i = 0; i < messageClose.length; i++) {
+    messageClose[i].addEventListener("click", function(){
+      this.parentNode.parentNode.classList.add("is-hidden");
+    });
+  }
+</script>
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
-
 </html>

@@ -1,0 +1,88 @@
+$timeline-width: 0.3em
+$container-width: 25em
+$distance_to_line: 3em
+
+.timeline
+  ul
+    li
+      list-style-type: none
+      position: relative
+      width: $timeline-width
+      padding-top: 50px
+      margin: 0 auto
+      background: $white
+      transition: background .5s ease-in-out
+
+      @media screen and (max-width: 600px)
+        margin-left: 20px
+
+      &.in-view
+        background: $primary
+
+      &.in-view:after
+          background: $primary-lighter
+
+      &:after
+        content: ''
+        position: absolute
+        left: 50%
+        bottom: 0
+        transform: translateX(-50%)
+        width: 2em
+        height: 2em
+        border-radius: 50%
+        background: $white
+        transition: background 1s ease-in-out
+
+      &:nth-child(odd) .timeline-container
+        left: $distance_to_line
+        transform: translate3d(200px,0,0)
+
+        &:before
+          left: -15px
+          border-width: 8px 14px 8px 0
+          border-color: transparent $primary-lighter transparent transparent
+
+      &:nth-child(even) .timeline-container
+        left: - ($container-width + $distance_to_line - $timeline-width)
+        transform: translate3d(-200px,0,0)
+
+        @media screen and (max-width: 600px)
+          left: $distance_to_line
+
+        &:before
+          right: -15px
+          border-width: 8px 0 8px 14px
+          border-color: transparent transparent transparent $primary-lighter
+
+          @media screen and (max-width: 600px)
+            left: -15px
+            border-width: 8px 14px 8px 0
+            border-color: transparent $primary-lighter transparent transparent
+
+      &.in-view
+        .timeline-container
+          transform: none
+          visibility: visible
+          opacity: 1
+
+      .timeline-container
+        position: relative
+        bottom: 0
+        width: $container-width
+        padding: 0.9375em
+        background: $body-background
+        border-color: $primary-lighter
+        border-style: solid
+        border-radius: $radius-large
+        visibility: hidden
+        opacity: 0
+        transition: all .5s ease-in-out
+
+        &:before
+          content: ''
+          position: absolute
+          bottom: 0.4375em
+          width: 0
+          height: 0
+          border-style: solid
