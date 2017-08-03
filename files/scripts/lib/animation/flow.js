@@ -1,4 +1,4 @@
-var FlowDrawer = function () {
+define(function () {
     var canvas,
         WIDTH,
         HEIGHT,
@@ -77,17 +77,17 @@ var FlowDrawer = function () {
     function setCanvasSize(width, height) {
         WIDTH = width;
         HEIGHT = height;
-        
+
         canvas.width = width;
         canvas.height = height;
     }
 
     // Call the function when the size of the canvas is changed
-    function resize(width, height) {
+    function resize(width = window.innerWidth, height = window.innerHeight) {
         var check;
-        
+
         setCanvasSize(width, height);
-        
+
         ctx.strokeStyle = strokeStyle;
         ctx.lineWidth = lineWidth;
 
@@ -115,7 +115,7 @@ var FlowDrawer = function () {
         return resolution[objNum];
     }
 
-    // Set the number of objects to be drawn on the canvas. Three parameters for three differernt screen resolution; larger than 1366, between 1366px and 640px, and less than 640px 
+    // Set the number of objects to be drawn on the canvas. Three parameters for three differernt screen resolution; larger than 1366, between 1366px and 640px, and less than 640px
     function setObjNum(num1, num2, num3) {
         resolution[0] = num1;
         resolution[1] = num2;
@@ -131,7 +131,7 @@ var FlowDrawer = function () {
         lineWidth = width;
     }
 
-    // Return an integer random number; min value is optional (default is set to 0) 
+    // Return an integer random number; min value is optional (default is set to 0)
     function randomNum(max, min) {
         min = arguments[1] || 0;
         return Math.floor(Math.random() * (max - min + 1) + min);
@@ -206,4 +206,4 @@ var FlowDrawer = function () {
         init: init,
         resize: resize
     };
-};
+});

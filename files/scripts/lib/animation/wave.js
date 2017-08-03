@@ -1,4 +1,4 @@
-var WaveDrawer = function () {
+define(function () {
     var canvas,
         canvasID,
         WIDTH,
@@ -154,4 +154,4 @@ var WaveDrawer = function () {
         setAmplitude: setAmplitude,
         resize: resize
     };
-};
+});

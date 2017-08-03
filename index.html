@@ -1,26 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <!-- Basic Page Needs –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
   <title>Tan He</title>
   <meta name="description" content="Tan's Personal Website">
   <meta name="author" content="Tan He: tan.he@edu.uwaterloo.ca">
-
   <!-- Mobile Specific Metas –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <!-- FONT –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- CSS –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="./files/css/bulma.css">
-
 </head>
 <body>
-
 <!-- Primary Page Layout –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
 <!-- Start Awesome Fullscreen Banner -->
 <section class="hero is-fullheight is-primary" id="fullscreen-banner">
    <div class="hero-head">
@@ -38,9 +32,9 @@
     </header>
   </div>
 
-
   <div class="hero-body">
     <canvas id="wave-canvas" class="is-overlay"></canvas>
+    <canvas id="flow-canvas" class="is-overlay"></canvas>
     <div class="container has-text-right">
       <h1 class="title is-1 is-spaced is-unselectable">Tan He</h1>
       <h2 class="subtitle is-3 is-unselectable is-hidden-mobile">Just a student.</h2>
@@ -236,90 +230,7 @@
 </footer>
 <!-- End Awesome Footer -->
 <!-- Javascript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
-<script src="./files/scripts/wave.js"></script>
-<script type="application/javascript">
-// Initialize header animation
-waveCanvas = new WaveDrawer();
-waveCanvas.init({
-    id: 'wave-canvas',
-    width: window.innerWidth,
-    height: document.getElementById('fullscreen-banner').offsetHeight,
-    wave_position: 450,
-    fillStyle: '#7FEBD3'
-});
-window.addEventListener('resize', waveCanvas.resize(window.innerWidth, document.getElementById('fullscreen-banner').offsetHeight), false);
-</script>
-<script type="application/javascript">
-function isElementInViewport(el) {
-  var rect = el.getBoundingClientRect();
-  return (
-    rect.top >=0 &&
-    rect.left >=0 &&
-    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  );
-}
-
-var items = document.querySelectorAll(".timeline li");
-
-function callbackFunc() {
-  for (var i = 0; i < items.length; i++) {
-    if (isElementInViewport(items[i])) {
-      items[i].classList.add("in-view");
-    }
-  }
-}
-
-window.addEventListener("load", callbackFunc);
-window.addEventListener("scroll", callbackFunc);
-
-// TODO: seperate js files
-var sectionTabs = document.querySelectorAll("#section-tabs li"),
-    sections = document.querySelectorAll("section.section");
-
-function switchTab(){
-  var sectionTab = this,
-      section = document.getElementById(sectionTab.dataset.target);
-  for (var i =0; i < sections.length; i++) {
-    sectionTabs[i].classList.remove("is-active");
-    sections[i].classList.remove("is-active");
-  }
-  sectionTab.classList.add("is-active");
-  section.classList.add("is-active");
-}
-
-for (var i = 0; i < sections.length; i++ ) {
-  sectionTabs[i].addEventListener("click", switchTab);
-}
-
-// get mail parameter
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
-
-var mailStatus = getParameterByName('mail');
-if(mailStatus){
-  document.querySelector('#section-tabs li[data-target="contact"]').click();
-  if(mailStatus === 'success') {
-    document.getElementById("success-message").classList.remove("is-hidden");
-  }else if(mailStatus === 'error') {
-    document.getElementById("error-message").classList.remove("is-hidden");
-  }
-}
-  var messageClose = document.querySelectorAll('article.message button.delete');
-  for(var i = 0; i < messageClose.length; i++) {
-    messageClose[i].addEventListener("click", function(){
-      this.parentNode.parentNode.classList.add("is-hidden");
-    });
-  }
-</script>
+ <script data-main="files/scripts/app" src="files/scripts/lib/require.js"></script>
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
