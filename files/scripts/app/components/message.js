@@ -17,8 +17,10 @@ define(['util'], function(util) {
     } else if(emailStatus === 'error') {
       document.getElementById('error-message').classList.remove('is-hidden');
     }
+    if(emailStatus) {
       document.querySelector('li[data-target="contact"]').click();
       util.jump('contact');
+    }
   }
 
   return {
