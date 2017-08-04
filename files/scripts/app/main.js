@@ -1,13 +1,13 @@
 define(function(require) {
-  var message = require('./components/message'),
-      tabs = require('./components/tabs'),
-      timeline = require('./components/timeline'),
-      wave = require('./animation/wave'),
-      flow = require('./animation/flow');
+  var message = require('app/components/message'),
+      tabs = require('app/components/tabs'),
+      timeline = require('app/components/timeline'),
+      wave = require('app/animation/wave'),
+      flow = require('app/animation/flow');
 
-  message.init();
   tabs.init();
   timeline.init();
+  message.init();
 
   wave.init();
   flow.init();
