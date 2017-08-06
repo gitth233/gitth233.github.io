@@ -7,10 +7,10 @@ define(['util'], function(util) {
         this.parentNode.parentNode.classList.add('is-hidden');
       });
     }
-    onPageLoad();
   }
 
-  function onPageLoad() {
+// call after all the event listeners are bound
+  function start() {
     var emailStatus = util.getParam('email');
     if(emailStatus === 'success') {
       document.getElementById('success-message').classList.remove('is-hidden');
@@ -24,6 +24,7 @@ define(['util'], function(util) {
   }
 
   return {
-    init: init
+    init: init,
+    start: start
   }
 });

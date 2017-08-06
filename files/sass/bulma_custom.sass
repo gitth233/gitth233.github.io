@@ -5,18 +5,23 @@
 @charset "utf-8"
 
 $primary-lighter: #7FEBD3
+$body-background: #FFF
 
 @import "../../node_modules/bulma/sass/utilities/_all"
 
 @import "../../node_modules/bulma/sass/base/_all"
 @import "../../node_modules/bulma/sass/layout/_all"
 
-@import "../../node_modules/bulma/sass/elements/icon"
+@import "../../node_modules/bulma/sass/elements/_all"
 
 @import "../../node_modules/bulma/sass/grid/columns"
 
-@import "sass/timeline/timeline"
+@import "../../node_modules/bulma/sass/components/tabs"
+@import "../../node_modules/bulma/sass/components/message"
+@import "../../node_modules/bulma/sass/components/nav"
 
+@import "timeline/timeline"
+@import "animation/animation"
 .nav
   position: fixed !important
   top: 0

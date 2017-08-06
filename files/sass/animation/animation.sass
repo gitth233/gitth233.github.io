@@ -1,0 +1,28 @@
+@keyframes lineThrough
+  0%
+    text-decoration-line: none
+  100%
+    text-decoration-line: line-through
+@keyframes underline
+  0%
+    text-decoration-line: none
+  100%
+    text-decoration-line: underline
+
+@keyframes fade-out
+  0%
+    opacity: 1
+  100%
+    opacity: 0
+
+.is-crossed-out
+  animation: line-through 1.5s
+  animation-fill-mode: forwards
+
+.is-underlined
+  animation: underline 1.5s
+  animation-fill-mode: forwards
+
+.is-faded-out
+  animation: fade-out 2s
+  animation-fill-mode: forwards
