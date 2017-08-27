@@ -4118,7 +4118,7 @@ a.nav-item:not(.button) {
   transition: background 0.5s ease-in-out; }
   @media screen and (max-width: 600px) {
     .timeline ul li {
-      margin-left: 20px; } }
+      margin-left: 1.25em; } }
   .timeline ul li.in-view {
     background: #00d1b2; }
   .timeline ul li.in-view:after {
@@ -4135,18 +4135,19 @@ a.nav-item:not(.button) {
     background: white;
     transition: background 1s ease-in-out; }
   .timeline ul li:nth-child(odd) .timeline-container {
-    left: 3em;
-    transform: translate3d(200px, 0, 0); }
+    left: 3em; }
     .timeline ul li:nth-child(odd) .timeline-container:before {
       left: -15px;
       border-width: 8px 14px 8px 0;
       border-color: transparent #7FEBD3 transparent transparent; }
   .timeline ul li:nth-child(even) .timeline-container {
-    left: -27.7em;
-    transform: translate3d(-200px, 0, 0); }
+    left: -27.7em; }
     @media screen and (max-width: 600px) {
       .timeline ul li:nth-child(even) .timeline-container {
         left: 3em; } }
+    @media screen and (max-width: 900px) {
+      .timeline ul li:nth-child(even) .timeline-container {
+        left: -22.7em; } }
     .timeline ul li:nth-child(even) .timeline-container:before {
       right: -15px;
       border-width: 8px 0 8px 14px;
@@ -4172,6 +4173,12 @@ a.nav-item:not(.button) {
     visibility: hidden;
     opacity: 0;
     transition: all 0.5s ease-in-out; }
+    @media screen and (max-width: 600px) {
+      .timeline ul li .timeline-container {
+        width: 12.5em; } }
+    @media screen and (max-width: 900px) {
+      .timeline ul li .timeline-container {
+        width: 20em; } }
     .timeline ul li .timeline-container:before {
       content: "";
       position: absolute;

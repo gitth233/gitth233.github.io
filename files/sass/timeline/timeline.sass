@@ -14,7 +14,7 @@ $distance_to_line: 3em
       transition: background .5s ease-in-out
 
       @media screen and (max-width: 600px)
-        margin-left: 20px
+        margin-left: 1.25em
 
       &.in-view
         background: $primary
@@ -36,7 +36,6 @@ $distance_to_line: 3em
 
       &:nth-child(odd) .timeline-container
         left: $distance_to_line
-        transform: translate3d(200px,0,0)
 
         &:before
           left: -15px
@@ -45,10 +44,12 @@ $distance_to_line: 3em
 
       &:nth-child(even) .timeline-container
         left: - ($container-width + $distance_to_line - $timeline-width)
-        transform: translate3d(-200px,0,0)
 
         @media screen and (max-width: 600px)
           left: $distance_to_line
+
+        @media screen and (max-width: 900px)
+          left: - ($container-width / 1.25 + $distance_to_line - $timeline-width)
 
         &:before
           right: -15px
@@ -78,6 +79,12 @@ $distance_to_line: 3em
         visibility: hidden
         opacity: 0
         transition: all .5s ease-in-out
+
+        @media screen and (max-width: 600px)
+          width: $container-width / 2
+
+        @media screen and (max-width: 900px)
+          width: $container-width / 1.25
 
         &:before
           content: ''

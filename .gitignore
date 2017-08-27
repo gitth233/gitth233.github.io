@@ -50,3 +50,4 @@ Temporary Items
 /node_modules
 # sass cache
 /files/sass/.sass-cache
+*.map
